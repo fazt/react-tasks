@@ -1,0 +1,27 @@
+body {
+  background-color: #34495e;
+}
+.badge {
+  background-color: red;
+  margin-left: 4px;
+}
+
+.glyphicon {
+  margin-right: 4px;
+}
+
+.App .navbar {
+  border-radius: 0;
+  background-color: #2980b9;
+}
+.App .navbar .navbar-brand {
+  color: #fff;
+}
+.App .navbar ul li a{
+  color: #fff !important;
+}
+.form-task {
+  margin-bottom: 12px;
+  border: 1px solid #fff;
+  padding: 4px;
+}
