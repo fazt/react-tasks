@@ -4,7 +4,7 @@ import "./App.css";
 
 import Navbar from "./components/Navbar";
 import TaskCard from "./components/TaskCard";
-import FormTask from "./components/FormTask";
+import TaskForm from "./components/TaskForm";
 
 const App = (props) => {
   const [tasks, setTasks] = useState(props.tasks);
@@ -21,13 +21,13 @@ const App = (props) => {
 
   return (
     <div className="App">
-      <Navbar title={props.title} tasks={props.tasks} />
+      <Navbar title={props.title} tasks={tasks} />
 
       <div className="container py-5">
         <div className="row">
           <div className="col-sm-3">
             <img src={logo} alt="React Tasks App" className="App-logo" />
-            <FormTask onNewTask={addNewTask} />
+            <TaskForm onNewTask={addNewTask} tasks={tasks} />
           </div>
           <div className="col-sm-9">
             <div className="row">{renderTasks()}</div>

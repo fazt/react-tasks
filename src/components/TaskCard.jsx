@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 const Tasks = (props) => {
   const taskDelete = () => {
@@ -10,15 +10,15 @@ const Tasks = (props) => {
 
   return (
     <div className="col-md-3 p-2">
-      <div className="card bg-dark text-light rounded-0">
+      <div className="card bg-dark text-light rounded-0 animate__animated animate__fadeInUp">
         {/* Card Header */}
-        <div className="card-header">
+        <div className="card-header d-flex justify-content-between align-items-center">
           <h5 className="card-title">
-            {props.id}.  {props.title}
-            <span className="label label-info pull-right">
-              {props.priority}
-            </span>
+            {props.id}. {props.title}
           </h5>
+          <span className="badge bg-secondary pull-right">
+            {props.priority}
+          </span>
         </div>
 
         {/* Card Body */}

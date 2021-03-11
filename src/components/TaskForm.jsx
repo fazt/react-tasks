@@ -1,26 +1,42 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
+import Tasks from "./TaskCard";
 
 const FormTask = (props) => {
-  const [task, setTask] = useState({
+  const initalState = {
     title: "",
     description: "",
     responsible: "",
     priority: "low",
-  });
+  };
+  const [task, setTask] = useState(initalState);
+  const titleRef = useRef();
 
   const handleChange = (e) =>
     setTask({ ...task, [e.target.name]: e.target.value });
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    // check if the task is already created
+    const tasksExists = props.tasks.find((t) => t.title === task.title);
+
+    if (tasksExists) {
+      alert(`The title: "${tasksExists.title}" already exists`);
+      return titleRef.current.focus();
+    }
+
+    // pass new task to callback
     props.onNewTask(task);
+
+    // restart the form state
+    setTask(initalState);
+
+    // focus on the title input
+    titleRef.current.focus();
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="border border-light rounded-0 px-1 py-4"
-    >
+    <form onSubmit={handleSubmit} className="px-1 py-4">
       <div className="mb-3">
         <div className="input-group">
           <span className="input-group-text">
@@ -33,6 +49,7 @@ const FormTask = (props) => {
             type="text"
             placeholder="Insert A Task"
             className="form-control rounded-0"
+            ref={titleRef}
             autoFocus
           />
         </div>
