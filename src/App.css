@@ -17,11 +17,26 @@ body {
 .App .navbar .navbar-brand {
   color: #fff;
 }
-.App .navbar ul li a{
+.App .navbar ul li a {
   color: #fff !important;
 }
-.form-task {
-  margin-bottom: 12px;
-  border: 1px solid #fff;
-  padding: 4px;
+
+.App-logo {
+  /* height: 40vmin;
+  pointer-events: none; */
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

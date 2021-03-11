@@ -1,100 +1,99 @@
-import React, { Component } from 'react';
+import { useState } from "react";
 
-class FormTask extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      title: '',
-      description: '',
-      responsible: '',
-      priority: 'low'
-    }
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-  }
-  handleChange(e){
-    console.log(e.target.name);
-    console.log(e.target.value);
+const FormTask = (props) => {
+  const [task, setTask] = useState({
+    title: "",
+    description: "",
+    responsible: "",
+    priority: "low",
+  });
 
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  }
-  handleSubmit(event) {
+  const handleChange = (e) =>
+    setTask({ ...task, [e.target.name]: e.target.value });
+
+  const handleSubmit = (event) => {
     event.preventDefault();
-    let task = this.state;
-    this.props.onNewTask(task);
-  }
-  render() {
-    return(
-        <form onSubmit={this.handleSubmit} className="form-task">
-          <div className="form-group">
-            <div className="input-group">
-              <span className="input-group-addon">
-                <i className="glyphicon glyphicon-pencil"></i>
-              </span>
-              <input
-                value={this.state.title}
-                name="title"
-                onChange={this.handleChange}
-                type="text"
-                placeholder="Insert A Task"
-                className="form-control"/>
-            </div>
-          </div>
+    props.onNewTask(task);
+  };
 
-          <div className="form-group">
-            <div className="input-group">
-              <span className="input-group-addon">
-                <i className="glyphicon glyphicon-user"></i>
-              </span>
-              <input
-                value={this.state.responsible}
-                name="responsible"
-                onChange={this.handleChange}
-                type="text"
-                placeholder="Insert A Reponsible"
-                className="form-control"/>
-            </div>
-          </div>
+  return (
+    <form
+      onSubmit={handleSubmit}
+      className="border border-light rounded-0 px-1 py-4"
+    >
+      <div className="mb-3">
+        <div className="input-group">
+          <span className="input-group-text">
+            <span className="material-icons">task</span>
+          </span>
+          <input
+            value={task.title}
+            name="title"
+            onChange={handleChange}
+            type="text"
+            placeholder="Insert A Task"
+            className="form-control rounded-0"
+            autoFocus
+          />
+        </div>
+      </div>
 
-          <div className="form-group">
-            <div className="input-group">
-              <span className="input-group-addon">
-                <i className="glyphicon glyphicon-list-alt"></i>
-              </span>
-              <textarea
-                value={this.state.description}
-                name="description"
-                onChange={this.handleChange}
-                type="text"
-                placeholder="Insert A Description"
-                className="form-control"></textarea>
-            </div>
-          </div>
+      <div className="mb-3">
+        <div className="input-group">
+          <span className="input-group-text">
+            <span className="material-icons">person</span>
+          </span>
+          <input
+            value={task.responsible}
+            name="responsible"
+            onChange={handleChange}
+            type="text"
+            placeholder="Insert A Reponsible"
+            className="form-control rounded-0"
+          />
+        </div>
+      </div>
 
-          <div className="form-group">
-            <div className="input-group">
-              <span className="input-group-addon">
-                <i className="glyphicon glyphicon-flag"></i>
-              </span>
-              <select
-                value={this.state.priority}
-                onChange={this.handleChange}
-                name="priority"
-                type="text"
-                className="form-control">
-                  <option value="high">High</option>
-                  <option value="medium">Medium</option>
-                  <option value="low">Low</option>
-                </select>
-            </div>
-          </div>
+      <div className="mb-3">
+        <div className="input-group">
+          <span className="input-group-text">
+            <span className="material-icons">edit</span>
+          </span>
+          <textarea
+            value={task.description}
+            name="description"
+            onChange={handleChange}
+            type="text"
+            placeholder="Insert A Description"
+            className="form-control"
+          ></textarea>
+        </div>
+      </div>
 
-          <input type="submit" className="btn btn-block btn-success"/>
-        </form>
-    )
-  }
-}
+      <div className="mb-3">
+        <div className="input-group">
+          <span className="input-group-text rounded-0">
+            <span className="material-icons">person</span>
+          </span>
+          <select
+            value={task.priority}
+            onChange={handleChange}
+            name="priority"
+            type="text"
+            className="form-control rounded-0"
+          >
+            <option value="high">High</option>
+            <option value="medium">Medium</option>
+            <option value="low">Low</option>
+          </select>
+        </div>
+      </div>
+
+      <button type="submit" className="btn btn-success rounded-0 w-100">
+        Guardar
+      </button>
+    </form>
+  );
+};
 
 export default FormTask;
