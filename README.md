@@ -1,12 +1,18 @@
+# React Tasks
+
+This is a React client side application, to practice basic concepts of React and Javascript
+
 ## Screenshoot
-![](screenshot.png)
+
+![](screenshot.jpg)
 
 ## Mockup
+
 ![](mockup.png)
 
-## Mis Redes Sociales:
-- Web: http://www.faztweb.com
-- Blog: http://blog.faztweb.com
-- Facebook: https://web.facebook.com/FaztJs
-- Twitter: https://twitter.com/FaztNcDev
-- Patreon: https://www.patreon.com/Fazt
+## Social Accounts:
+
+- Web: https://faztweb.com
+- Blog: https://blog.faztweb.com
+- Facebook: https://facebook.com/Fazttech
+- Twitter: https://twitter.com/fazttech
