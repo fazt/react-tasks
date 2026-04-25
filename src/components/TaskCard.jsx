@@ -1,9 +1,6 @@
-import React from "react";
-
-const Tasks = (props) => {
+const TaskCard = (props) => {
   const taskDelete = () => {
-    let deleteAnswer = confirm("Do you want to delete this Task?");
-    if (deleteAnswer) {
+    if (window.confirm("Do you want to delete this Task?")) {
       props.deleteTask(props.id);
     }
   };
@@ -43,4 +40,4 @@ const Tasks = (props) => {
   );
 };
 
-export default Tasks;
+export default TaskCard;

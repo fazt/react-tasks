@@ -1,9 +1,7 @@
-import React from "react";
-
 const Navbar = ({ title = "My Title", tasks = [] }) => (
   <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
     <div className="container">
-      <a className="navbar-brand">{title}</a>
+      <a className="navbar-brand" href="/">{title}</a>
       <button
         className="navbar-toggler"
         type="button"

@@ -79,7 +79,6 @@ const FormTask = (props) => {
             value={task.description}
             name="description"
             onChange={handleChange}
-            type="text"
             placeholder="Insert A Description"
             className="form-control"
           ></textarea>
@@ -95,7 +94,6 @@ const FormTask = (props) => {
             value={task.priority}
             onChange={handleChange}
             name="priority"
-            type="text"
             className="form-control rounded-0"
           >
             <option value="high">High</option>
